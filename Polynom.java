@@ -52,7 +52,8 @@ public class Polynom {
         return length;
     }
 
-    public double getOneCoef(int n) {
+    public double getCoefAt(int n) {
+
         if (n > this.coefRev.length || n < 0) {
             return 0;
         }
@@ -71,12 +72,20 @@ public class Polynom {
         return new Polynom(derv);
     }
 
-public String showPolynom(){
-String vysl="f(x)=";
-for(int i=0;i<this.getLevel();i++){
- vysl=vysl+" "+this.getOneCoef(i)+"x^"+(this.getLevel()-i);
-}
-vysl=vysl+" "+this.getOneCoef(this.coefRev.length-1);
-return vysl;
-}
+    public String showPolynom() {
+        String vysl = "f(x)=";
+        for (int i = 0; i < this.getLevel(); i++) {
+            vysl = vysl + " " + this.getCoefAt(i) + "x^" + (this.getLevel() - i);
+        }
+        vysl = vysl + " " + this.getCoefAt(this.coefRev.length - 1);
+        return vysl;
+    }
+
+    public double value(double x) {
+        double sum = 0;
+        for (int i = 0; i <= this.getLevel(); i++) {
+            sum = this.coefRev[i] + x * sum;
+        }
+        return sum;
+    }
 }
