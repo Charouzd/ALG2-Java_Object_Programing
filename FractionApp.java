@@ -17,12 +17,15 @@ public class FractionApp {
      */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Fraction zlomek = new Fraction();
-        zlomek.setValue(sc.nextDouble(), sc.nextDouble());
-        System.out.println(zlomek.citatel);
-        System.out.println(zlomek.jmenovatel);
-        System.out.println(zlomek.simbolic());
-        System.out.println(zlomek.simplify());
+        Fraction frac = new Fraction(6,3);
+        System.out.println(frac.simplify());
+        frac.setValue(sc.nextDouble(), sc.nextDouble());
+        System.out.println(frac.getCitatel());
+        System.out.println(frac.getJmenovatel());
+        System.out.println(frac.simplify());
+        System.out.println(frac.fractionValue());
+        System.out.println(frac.simbolic());
+
     }
 
 }
