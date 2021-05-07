@@ -67,7 +67,9 @@ public class Fraction {
 
         double a = this.citatel;
         double b = this.jmenovatel;
-        
+        if (b==0){
+        return " nulou dělit nelze";
+        }
         return a/gcd(a, b) +"/"+ b/gcd(a, b);
     }
 }
