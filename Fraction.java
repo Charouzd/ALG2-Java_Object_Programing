@@ -10,8 +10,19 @@
  */
 public class Fraction {
 
-    double citatel;
-    double jmenovatel;
+    private double citatel;
+    private double jmenovatel;
+    //konstruktory 
+    public Fraction(String cit,String jme){
+    this.citatel=Double.parseDouble(cit);
+    this.jmenovatel=Double.parseDouble(jme);;
+    }
+
+    public Fraction(double citatel, double jmenovatel) {
+        this.citatel = citatel;
+        this.jmenovatel = jmenovatel;
+    }
+    
 //metody
 
     public void setValue(double x, double y) {
@@ -19,16 +30,23 @@ public class Fraction {
         jmenovatel = y;
     }
 
-    public double citatel() {
+    public double getCitatel() {
         return citatel;
     }
 
-    public double jmenovatel() {
+    public double getJmenovatel() {
         return jmenovatel;
     }
 
     public String simbolic() {
         return citatel + "/" + jmenovatel;
+    }
+    public double fractionValue(){
+    if(this.jmenovatel != 0){
+        return this.citatel/this.jmenovatel;
+    }else{    
+        return Double.NaN;
+    }
     }
 
     private double gcd(double a, double b) {
@@ -47,8 +65,9 @@ public class Fraction {
 
     public String simplify() {
 
-        double a = citatel;
-        double b = jmenovatel;
+        double a = this.citatel;
+        double b = this.jmenovatel;
+        
         return a/gcd(a, b) +"/"+ b/gcd(a, b);
     }
 }
