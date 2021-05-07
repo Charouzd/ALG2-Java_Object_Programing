@@ -13,7 +13,7 @@ public class Polynom_Claculator {
     public static double value(Polynom coef, double x) {
         double sum = 0;
         for (int i = 0; i <= coef.getLevel(); i++) {
-            sum = sum + (coef.getOneCoef(i) * Math.pow(x, coef.getLevel() - i));
+            sum = sum + (coef.getCoefAt(i) * Math.pow(x, coef.getLevel() - i));
         }
         return sum;
     }
@@ -27,18 +27,18 @@ public class Polynom_Claculator {
     }
 
     public static Polynom twoPolynoms(Polynom coef1, Polynom coef2) {
-        
-        if(coef1.getLevel()>coef2.getLevel()){
-            double[] pol=coef1.getCoefRev();
-            for(int i=0;i<pol.length;i++){
-            pol[i]=pol[i]+coef2.getOneCoef(i);
-            return new Polynom(pol, true);
+
+        if (coef1.getLevel() > coef2.getLevel()) {
+            double[] pol = coef1.getCoefRev();
+            for (int i = 0; i < pol.length; i++) {
+                pol[i] = pol[i] + coef2.getCoefAt(i);
+                return new Polynom(pol, true);
             }
         }
-            double[] pol=coef2.getCoefRev();
-            for(int i=0;i<pol.length;i++){
-            pol[i]=pol[i]+coef1.getOneCoef(i);   
-            }
+        double[] pol = coef2.getCoefRev();
+        for (int i = 0; i < pol.length; i++) {
+            pol[i] = pol[i] + coef1.getCoefAt(i);
+        }
         return new Polynom(pol, true);
     }
 }
