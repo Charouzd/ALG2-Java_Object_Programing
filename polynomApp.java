@@ -14,7 +14,7 @@ public class polynomApp {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        double[] p = {0, -1, 4, 5, 1};
+        double[] p = {0, -3, 5, 5, 1};        
         Polynom poly = new Polynom(p, true);
         System.out.println("Stupeň polynomu je " + poly.getLevel());
 
@@ -27,8 +27,8 @@ public class polynomApp {
         System.out.println(" ");
         System.out.println(" ");
         //Konkrétní koeficient
-        System.out.println("koeficient 11. stupně: " + poly.getOneCoef(11));
-        System.out.println("koeficient 2. stupně: " + poly.getOneCoef(2));
+        System.out.println("koeficient 11. stupně: " + poly.getCoefAt(11));
+        System.out.println("koeficient 2. stupně: " + poly.getCoefAt(2));
         System.out.println(" ");
         //Celý polynom jako string
         System.out.println(poly.toString());
