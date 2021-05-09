@@ -1,0 +1,57 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package busApp;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Filip Charouzd
+ */
+public class busAPP {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Bus skolni = new Bus("DPMLI", 15, 41, 0);
+        int max=15;//počet zastávek
+        for (int i = 1; i <= max; i++) {
+
+            System.out.println("Zastávka číslo: " + i);
+            if(i==max){
+            System.out.println("Konečná! Vystoupilo "+skolni.cestujici);
+            skolni.vsichniVen();
+            }else{
+            System.out.println(skolni.toString());     
+            System.out.println("Vysupuje?");
+            int vys = sc.nextInt();
+            if (vys >= skolni.cestujici) {
+                System.out.println("vystoupilo " + skolni.cestujici);
+                skolni.vsichniVen();
+            } else if (vys <= 0) {
+                System.out.println("Nikdo nevystoupil");
+            } else {
+                skolni.vystupovani(vys);
+            }
+            System.out.println("Nasupuje?");
+            int nas = sc.nextInt();
+            if (nas >= skolni.volnaMista()) {
+                System.out.println("Vešlo se už jen " + skolni.volnaMista());
+                skolni.nastupovani(skolni.volnaMista());
+            } else if (nas <= 0) {
+                System.out.println("Nikdo nenastoupil");
+            } else {
+                skolni.nastupovani(nas);
+            }
+            } 
+
+        }
+
+    }
+
+}
