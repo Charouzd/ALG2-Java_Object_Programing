@@ -1,0 +1,71 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package busApp;
+
+/**
+ *
+ * @author Filip Charouzd
+ */
+public class Bus {
+
+    int sedadla, cislo, cestujici;
+    String spolecnost;
+
+    public Bus(String spolecnost, int cislo, int sedadla, int cestujici) {
+        this.sedadla = sedadla;
+        this.cislo = cislo;
+        this.cestujici = cestujici;
+        this.spolecnost = spolecnost;
+    }
+
+    public Bus() {
+        this.sedadla = 40;
+    }
+
+    public void setCislo(int cislo) {
+        this.cislo = cislo;
+    }
+
+    public void setSpolecnost(String spolecnost) {
+        this.spolecnost = spolecnost;
+    }
+
+    public void nastupovani(int lidi) {
+        this.cestujici += lidi;
+    }
+
+    public void vystupovani(int lidi) {
+
+        this.cestujici -= lidi;
+    }
+    public void vsichniVen() {
+        this.cestujici = 0;
+        
+    }
+
+    public int getSedadla() {
+        return sedadla;
+    }
+
+    public int getCislo() {
+        return cislo;
+    }
+
+    public int getCestujici() {
+        return cestujici;
+    }
+
+    public String getSpolecnost() {
+        return spolecnost;
+    }
+    public int volnaMista(){
+    return sedadla-cestujici;
+    }
+    @Override
+    public String toString() {
+        return "Autobus číslo " + cislo + " společnosti " + spolecnost + " s počtem sedadel " + sedadla + " právě převáží " + cestujici + "cestujících";
+    }
+}
