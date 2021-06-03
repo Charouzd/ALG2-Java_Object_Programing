@@ -119,7 +119,10 @@ public class CommandLine {
     }
 
     private String cd(String path) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       
     }
-
+    
+private String cd2(String path) {
+       
+    }
 }
