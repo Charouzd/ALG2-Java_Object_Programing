@@ -28,7 +28,7 @@ public class CMD {
             command = sc.nextLine();
             try {
                 System.out.println(cmd.parseAndExecute(command));
-                //} while(!command.equals("exit"));
+                //} while(!command.equals("end"));
             } catch (IOException ex) {
                 System.out.println("Error 505 file is un readable");
             }

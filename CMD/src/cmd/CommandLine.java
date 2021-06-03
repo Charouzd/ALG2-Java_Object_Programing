@@ -26,6 +26,7 @@ public class CommandLine {
             case "cd" : result= cd();
             case "mkdirs" :result= mkdirs();
             case "rename" : result= rename();
+            case "end" : result=end(); 
             default:
                 result = "Nevalidni prikaz";
         }
@@ -61,23 +62,27 @@ public class CommandLine {
     }
 
     private String dir() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "ok";
     }
 
     private String mkDir() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "ok";
     }
 
     private String cd() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "ok";
     }
 
     private String mkdirs() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    return "ok";
     }
 
     private String rename() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    return "ok";
+    }
+
+    private String end() {
+    return "ok";
     }
 
 }
