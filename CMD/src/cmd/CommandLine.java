@@ -120,9 +120,15 @@ public class CommandLine {
 
     private String cd(String path) {
        
+        File newDir = new File(path);
+         String path2 = newDir.getAbsolutePath();;
+       //List<String> contents = Arrays.asList(actualDir.list());
+      File newDir2 = new File(path2);
+        actualDir = newDir2;
+        return path2;
     }
     
-private String cd2(String path) {
-       
-    }
+//private String cd2(String path) {
+//       
+//    }
 }
