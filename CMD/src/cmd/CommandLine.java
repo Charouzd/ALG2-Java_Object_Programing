@@ -81,7 +81,7 @@ public class CommandLine {
 
     }
 
-    private String dir() {
+    private String dir()  {
         StringBuilder sb = new StringBuilder();
         List<String> contents = Arrays.asList(actualDir.list());
         for (String element : contents) {
@@ -130,7 +130,14 @@ public class CommandLine {
 
     private String cd(String path) {
         File newDir = new File(path);
+<<<<<<< HEAD
         String path2 = newDir.getAbsolutePath();;
+=======
+        String path2 = newDir.getAbsolutePath();
+         if(!newDir.isDirectory()) {
+                    return "give Absolute path";
+         }
+>>>>>>> 0a4927ad1a97a3b9a658ce03a30d37216598d8a7
         actualDir = new File(path2);
         return path2;
     }
