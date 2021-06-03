@@ -117,12 +117,13 @@ public class CommandLine {
         System.exit(0);
         return "aplikace ukoncena";
     }
-
+/*
     private String cd(String path) {
        
     }
-    
+   */ 
 private String cd2(String path) {
-       
+       actualDir = new File(System.getProperty(path+"//user.dir"));
+       return "ok";
     }
 }
