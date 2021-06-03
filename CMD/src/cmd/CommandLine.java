@@ -31,7 +31,7 @@ public class CommandLine {
             break;
             case "mkdirs" :result= mkdirs();
             break;
-            case "rename" : result= rename();
+            case "rename" : result= rename(parts[1], parts[2]);
             break;
             case "end" : result=end(); 
             break;
@@ -89,10 +89,17 @@ public class CommandLine {
     return "ok";
     }
 
-    private String rename() {
-    return "ok";
-    }
+     private String rename(String oldName, String newName) {
+        File sourceFile = new File(oldName);
+        File destFile = new File(newName);
 
+        if (sourceFile.renameTo(destFile)) {
+            return ("File renamed successfully");
+        } else {
+            return "Failed to rename file";
+        }
+      
+    }
     private String end() {
     return "ok";
     }
