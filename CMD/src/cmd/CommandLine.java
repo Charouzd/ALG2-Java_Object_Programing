@@ -117,16 +117,13 @@ public class CommandLine {
         System.exit(0);
         return "aplikace ukoncena";
     }
-/*
+
     private String cd(String path) {
-       
+
         File newDir = new File(path);
-         String path2 = newDir.getAbsolutePath();;
-       //List<String> contents = Arrays.asList(actualDir.list());
-      File newDir2 = new File(path2);
-        actualDir = newDir2;
+        String path2 = newDir.getAbsolutePath();;
+        actualDir = new File(path2);
         return path2;
     }
-<<<<<<< HEAD
-   */ 
+
 }
