@@ -100,14 +100,18 @@ public class CommandLine {
     private String mkdirs(String path) {
         StringBuilder sb = new StringBuilder();
         String[] splitted = path.trim().split("@");
+        String originalPath = actualDir.getAbsolutePath();
         System.out.println("splitted = " + splitted.length);
         String temp = "";
+        String storage;
         for (int i = 0; i < splitted.length; i++) {
-            temp += File.separator + splitted[i];
-            sb.append(mkDir(splitted[i]));
-
+            temp += splitted[i] + File.separator;
+            System.out.println(temp);
+            storage=mkDir(splitted[i]);
+            storage=cd(temp);
         }
-        return sb.toString();
+        storage=cd(originalPath);
+        return "patch was created";
 
     }
 
