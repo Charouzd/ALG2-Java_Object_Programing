@@ -71,7 +71,7 @@ public class CommandLine {
         sb.append("Use one of the following comands" + "\n");
         sb.append("dir - list current directory" + "\n");
         sb.append("mkdir <name> - make directory" + "\n");
-        sb.append("cd <path> - move to directory" + "\n");
+        sb.append("cd <path> - move to directory path must be in absolute form" + "\n");
         sb.append("rename <name> <name> - rename a choosen directory" + "\n");
         sb.append("mkfile <name> - make a file" + "\n");
         sb.append("mkdirs<path> - make all directories in the path" + "\n");
@@ -121,7 +121,7 @@ public class CommandLine {
     private String cd(String path) {
 
         File newDir = new File(path);
-        String path2 = newDir.getAbsolutePath();;
+        String path2 = newDir.getAbsolutePath();
         actualDir = new File(path2);
         return path2;
     }
