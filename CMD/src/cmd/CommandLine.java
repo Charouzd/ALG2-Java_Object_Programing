@@ -20,13 +20,21 @@ public class CommandLine {
         String result;
         switch(parts[0]){
             case "mkfile": result = mkfile(parts[1]);
+            break;
             case "help": result = help();
+            break;
             case "dir": result= dir();
-            case "mkdir" : result= mkDir();
+            break;
+            case "mkdir" : result= mkDir(parts[1]);
+            break;
             case "cd" : result= cd();
+            break;
             case "mkdirs" :result= mkdirs();
+            break;
             case "rename" : result= rename();
+            break;
             case "end" : result=end(); 
+            break;
             default:
                 result = "Nevalidni prikaz";
         }
@@ -65,9 +73,13 @@ public class CommandLine {
         return "ok";
     }
 
-    private String mkDir() {
-        return "ok";
+    private String mkDir(String name) {
+    if (new File(actualDir.getAbsolutePath() + File.separator + name).mkdirs()) {
+            return "slozka vytvorena";
+        }
+        return "slozka nebyla vytvorena";
     }
+    
 
     private String cd() {
         return "ok";
