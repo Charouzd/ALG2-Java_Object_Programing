@@ -5,7 +5,10 @@
  */
 package cmd;
 
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,8 +26,12 @@ public class CMD {
         do{
             System.out.print(cmd.getActualDir() + "# ");
             command = sc.nextLine();
-            System.out.println(cmd.parseAndExecute(command));
-        //} while(!command.equals("exit"));
+            try {
+                System.out.println(cmd.parseAndExecute(command));
+                //} while(!command.equals("exit"));
+            } catch (IOException ex) {
+                System.out.println("Error 505 file is un readable");
+            }
         } while(!cmd.isEnd());
     }
     }

@@ -1,6 +1,7 @@
 package cmd;
 
 import java.io.File;
+import java.io.IOException;
 
 public class CommandLine {
     private String command;
@@ -14,19 +15,24 @@ public class CommandLine {
         return actualDir.getAbsolutePath();
 	}
 
-	public String parseAndExecute(String command) {
+	public String parseAndExecute(String command) throws IOException {
 		String[] parts = command.trim().split(" ");
         String result;
         switch(parts[0]){
             case "mkfile": result = mkfile(parts[1]);
             case "help": result = help();
+            case "dir": result= dir();
+            case "mkdir" : result= mkDir();
+            case "cd" : result= cd();
+            case "mkdirs" :result= mkdirs();
+            case "rename" : result= rename();
             default:
                 result = "Nevalidni prikaz";
         }
         return result;
 	}
 
-    private String mkfile(String filename){
+    private String mkfile(String filename) throws IOException{
         File f = new File(actualDir.getAbsolutePath() + File.separator + filename);
         //File f = new File(actualDir, filename);
         if(f.createNewFile()){
@@ -41,7 +47,37 @@ public class CommandLine {
 	}
 
     private String help() {
+       StringBuilder sb = new StringBuilder();
+       sb.append("Use one of the following comands"+"\n");
+       sb.append("dir - list current directory" + "\n");
+       sb.append("mkdir <name> - make directory" + "\n");
+       sb.append("cd <path> - move to directory" + "\n");
+       sb.append("rename <name> <name> - rename a choosen directory" + "\n");
+       sb.append("mkfile <name> - make a file" + "\n");
+       sb.append("mkdirs<path> - make all directories in the path" + "\n");
        
+       return sb.toString();
+       
+    }
+
+    private String dir() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private String mkDir() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private String cd() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private String mkdirs() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private String rename() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
