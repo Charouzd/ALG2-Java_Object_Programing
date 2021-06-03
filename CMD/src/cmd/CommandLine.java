@@ -107,10 +107,10 @@ public class CommandLine {
         for (int i = 0; i < splitted.length; i++) {
             temp += splitted[i] + File.separator;
             System.out.println(temp);
-            storage=mkDir(splitted[i]);
-            storage=cd(temp);
+            storage = mkDir(splitted[i]);
+            storage = cd(temp);
         }
-        storage=cd(originalPath);
+        storage = cd(originalPath);
         return "patch was created";
 
     }
@@ -133,7 +133,7 @@ public class CommandLine {
     }
 
     private String cd(String path) {
-        File newDir = new File(path);
+        File newDir = new File(actualDir.getAbsolutePath() + File.separator + path);
         String path2 = newDir.getAbsolutePath();
         if (!newDir.isDirectory()) {
             return "give Absolute path";
