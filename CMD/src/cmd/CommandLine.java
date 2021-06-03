@@ -38,7 +38,7 @@ public class CommandLine {
                 result = cd(parts[1]);
                 break;
             case "mkdirs":
-                result = mkdirs();
+                result = mkdirs(parts[1]);
                 break;
             case "rename":
                 result = rename(parts[1], parts[2]);
@@ -71,7 +71,7 @@ public class CommandLine {
         sb.append("Use one of the following comands" + "\n");
         sb.append("dir - list current directory" + "\n");
         sb.append("mkdir <name> - make directory" + "\n");
-        sb.append("cd <path> - move to directory path must be in absolute form" + "\n");
+        sb.append("cd <path> - move to directory" + "\n");
         sb.append("rename <name> <name> - rename a choosen directory" + "\n");
         sb.append("mkfile <name> - make a file" + "\n");
         sb.append("mkdirs<path> - make all directories in the path" + "\n");
@@ -97,8 +97,18 @@ public class CommandLine {
         return "slozka nebyla vytvorena";
     }
 
-    private String mkdirs() {
-        return "ok";
+    private String mkdirs(String path) {
+        StringBuilder sb = new StringBuilder();
+        String[] splitted = path.trim().split("@");
+        System.out.println("splitted = " + splitted.length);
+        String temp = "";
+        for (int i = 0; i < splitted.length ; i++) {
+            temp += File.separator + splitted[i];
+            sb.append(mkDir(splitted[i]));
+            
+        }
+        return sb.toString();
+        
     }
 
     private String rename(String oldName, String newName) {
@@ -119,9 +129,8 @@ public class CommandLine {
     }
 
     private String cd(String path) {
-
         File newDir = new File(path);
-        String path2 = newDir.getAbsolutePath();
+        String path2 = newDir.getAbsolutePath();;
         actualDir = new File(path2);
         return path2;
     }
