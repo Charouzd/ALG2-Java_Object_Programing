@@ -27,7 +27,7 @@ public class CommandLine {
             break;
             case "mkdir" : result= mkDir(parts[1]);
             break;
-            case "cd" : result= cd();
+            case "cd" : result= cd(parts[1]);
             break;
             case "mkdirs" :result= mkdirs();
             break;
@@ -81,7 +81,7 @@ public class CommandLine {
     }
     
 
-    private String cd() {
+    private String cd(String path) {
         return "ok";
     }
 
