@@ -132,7 +132,7 @@ public class CommandLine {
         return "aplikace ukoncena";
     }
 
- private String cd(String path) {
+    private String cd(String path) {
         File newDir = new File(path);
         String path2 = newDir.getAbsolutePath();
         if (!newDir.isDirectory()) {
@@ -141,4 +141,6 @@ public class CommandLine {
         actualDir = new File(path2);
         return path2;
     }
+
 }
+
